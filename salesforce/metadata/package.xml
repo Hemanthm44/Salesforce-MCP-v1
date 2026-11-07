@@ -22,12 +22,24 @@
         <name>CustomTab</name>
     </types>
     <types>
-        <members>Medical_Demo_Admin</members>
+        <members>Medical_Demo_Admin</members><members>Medical_Demo_Integration_ReadOnly</members>
         <name>PermissionSet</name>
     </types>
     <types>
         <members>CaseType</members>
         <name>StandardValueSet</name>
+    </types>
+        <types>
+        <members>Account-Account Layout</members>
+        <members>Case-Case Layout</members>
+        <members>Condition__c-Condition Layout</members>
+        <members>Doctor__c-Doctor Layout</members>
+        <members>Lab_Result__c-Lab Result Layout</members>
+        <members>Patient_Treatment__c-Patient Treatment Layout</members>
+        <members>Patient__c-Patient Layout</members>
+        <members>Treatment__c-Treatment Layout</members>
+        <members>Visit__c-Visit Layout</members>
+        <name>Layout</name>
     </types>
     <version>68.0</version>
 </Package>
