@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableBulkApi>true</enableBulkApi>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Baseline_Value__c</fullName>
+        <label>Baseline Value</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Change__c</fullName>
+        <formula>Latest_Value__c - Baseline_Value__c</formula>
+        <formulaTreatBlanksAs>BlankAsBlank</formulaTreatBlanksAs>
+        <label>Change</label>
+        <precision>6</precision>
+        <scale>1</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Condition__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <label>Condition</label>
+        <referenceTo>Condition__c</referenceTo>
+        <relationshipLabel>Patient Treatments</relationshipLabel>
+        <relationshipName>Patient_Treatments</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>End_Date__c</fullName>
+        <label>End Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Latest_Value__c</fullName>
+        <label>Latest Value</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Outcome_Measure__c</fullName>
+        <label>Outcome Measure</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value><fullName>HbA1c</fullName><default>false</default><label>HbA1c</label></value>
+                <value><fullName>Systolic BP</fullName><default>false</default><label>Systolic BP</label></value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Outcome_Notes__c</fullName>
+        <label>Outcome Notes</label>
+        <length>2000</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Outcome__c</fullName>
+        <label>Outcome</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value><fullName>Improved</fullName><default>false</default><label>Improved</label></value>
+                <value><fullName>Stable</fullName><default>false</default><label>Stable</label></value>
+                <value><fullName>Worsened</fullName><default>false</default><label>Worsened</label></value>
+                <value><fullName>Resolved</fullName><default>false</default><label>Resolved</label></value>
+                <value><fullName>Too early to tell</fullName><default>false</default><label>Too early to tell</label></value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Patient__c</fullName>
+        <label>Patient</label>
+        <referenceTo>Patient__c</referenceTo>
+        <relationshipLabel>Patient Treatments</relationshipLabel>
+        <relationshipName>Patient_Treatments</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Prescribing_Doctor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <label>Prescribing Doctor</label>
+        <referenceTo>Doctor__c</referenceTo>
+        <relationshipLabel>Patient Treatments</relationshipLabel>
+        <relationshipName>Patient_Treatments</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Start_Date__c</fullName>
+        <label>Start Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <label>Status</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value><fullName>Active</fullName><default>false</default><label>Active</label></value>
+                <value><fullName>Completed</fullName><default>false</default><label>Completed</label></value>
+                <value><fullName>Discontinued</fullName><default>false</default><label>Discontinued</label></value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Treatment__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <label>Treatment</label>
+        <referenceTo>Treatment__c</referenceTo>
+        <relationshipLabel>Patient Treatments</relationshipLabel>
+        <relationshipName>Patient_Treatments</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <label>Patient Treatment</label>
+    <nameField>
+        <displayFormat>PT-{00000}</displayFormat>
+        <label>Patient Treatment Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Patient Treatments</pluralLabel>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

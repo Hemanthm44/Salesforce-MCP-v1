@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableBulkApi>true</enableBulkApi>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Active_Treatments__c</fullName>
+        <label>Active Treatments</label>
+        <summaryFilterItems>
+            <field>Patient_Treatment__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Patient_Treatment__c.Patient__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Age__c</fullName>
+        <formula>FLOOR((TODAY() - Date_of_Birth__c) / 365.2425)</formula>
+        <formulaTreatBlanksAs>BlankAsBlank</formulaTreatBlanksAs>
+        <label>Age</label>
+        <precision>3</precision>
+        <scale>0</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>City__c</fullName>
+        <label>City</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Date_of_Birth__c</fullName>
+        <label>Date of Birth</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Gender__c</fullName>
+        <label>Gender</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value><fullName>Female</fullName><default>false</default><label>Female</label></value>
+                <value><fullName>Male</fullName><default>false</default><label>Male</label></value>
+                <value><fullName>Other</fullName><default>false</default><label>Other</label></value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Last_Visit__c</fullName>
+        <label>Last Visit</label>
+        <summarizedField>Visit__c.Visit_Date__c</summarizedField>
+        <summaryFilterItems>
+            <field>Visit__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Completed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Visit__c.Patient__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>MRN__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>MRN</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Next_Visit__c</fullName>
+        <label>Next Visit</label>
+        <summarizedField>Visit__c.Visit_Date__c</summarizedField>
+        <summaryFilterItems>
+            <field>Visit__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Scheduled</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Visit__c.Patient__c</summaryForeignKey>
+        <summaryOperation>min</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Doctor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <label>Primary Doctor</label>
+        <referenceTo>Doctor__c</referenceTo>
+        <relationshipLabel>Primary Patients</relationshipLabel>
+        <relationshipName>Primary_Patients</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Total_Visits__c</fullName>
+        <label>Total Visits</label>
+        <summaryFilterItems>
+            <field>Visit__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Completed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Visit__c.Patient__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <label>Patient</label>
+    <nameField>
+        <label>Patient Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Patients</pluralLabel>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

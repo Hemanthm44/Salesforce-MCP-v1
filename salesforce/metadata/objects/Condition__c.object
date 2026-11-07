@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableBulkApi>true</enableBulkApi>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Category__c</fullName>
+        <label>Category</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value><fullName>Endocrine</fullName><default>false</default><label>Endocrine</label></value>
+                <value><fullName>Cardiovascular</fullName><default>false</default><label>Cardiovascular</label></value>
+                <value><fullName>Respiratory</fullName><default>false</default><label>Respiratory</label></value>
+                <value><fullName>Renal</fullName><default>false</default><label>Renal</label></value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ICD10_Code__c</fullName>
+        <label>ICD-10 Code</label>
+        <length>10</length>
+        <required>false</required>
+        <type>Text</type>
+    </fields>
+    <label>Condition</label>
+    <nameField>
+        <label>Condition Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Conditions</pluralLabel>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>
