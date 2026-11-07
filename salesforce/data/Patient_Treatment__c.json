@@ -1,0 +1,52 @@
+{
+  "records": [
+    {
+      "attributes": { "type": "Patient_Treatment__c", "referenceId": "PtDanielCPR" },
+      "Patient__c": "@PatDaniel",
+      "Condition__c": "@CondCardiacArrest",
+      "Treatment__c": "@TrtCPR",
+      "Prescribing_Doctor__c": "@DocBennett",
+      "Start_Date__c": "2026-11-07",
+      "End_Date__c": "2026-11-07",
+      "Status__c": "Completed",
+      "Outcome__c": "Improved",
+      "Outcome_Notes__c": "Circulation restored after two shocks."
+    },
+    {
+      "attributes": { "type": "Patient_Treatment__c", "referenceId": "PtDanielPCI" },
+      "Patient__c": "@PatDaniel",
+      "Condition__c": "@CondCardiacArrest",
+      "Treatment__c": "@TrtPCI",
+      "Prescribing_Doctor__c": "@DocBennett",
+      "Start_Date__c": "2026-11-07",
+      "Status__c": "Active",
+      "Outcome__c": "Too early to tell",
+      "Outcome_Notes__c": "Stent placed. Being monitored in the Coronary Care Unit."
+    },
+    {
+      "attributes": { "type": "Patient_Treatment__c", "referenceId": "PtMeganFluids" },
+      "Patient__c": "@PatMegan",
+      "Condition__c": "@CondVitD",
+      "Treatment__c": "@TrtIVFluids",
+      "Prescribing_Doctor__c": "@DocBennett",
+      "Start_Date__c": "2026-11-07",
+      "End_Date__c": "2026-11-07",
+      "Status__c": "Completed",
+      "Outcome__c": "Improved",
+      "Baseline_Value__c": 2.95,
+      "Latest_Value__c": 2.78,
+      "Outcome_Notes__c": "Adjusted calcium fell from 2.95 to 2.78 mmol/L. Advised to stop vitamin D supplements and see her GP in one week."
+    },
+    {
+      "attributes": { "type": "Patient_Treatment__c", "referenceId": "PtMargaretTx" },
+      "Patient__c": "@PatMargaret",
+      "Condition__c": "@CondAnaemia",
+      "Treatment__c": "@TrtTransfusion",
+      "Prescribing_Doctor__c": "@DocRahman",
+      "Start_Date__c": "2026-11-07",
+      "Status__c": "Active",
+      "Outcome__c": "Too early to tell",
+      "Outcome_Notes__c": "Two units planned. Cause of anaemia under investigation."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "records": [
+    {
+      "attributes": { "type": "Case", "referenceId": "CaseMegan" },
+      "Subject": "Complaint: 8-hour wait in A&E",
+      "Type": "Complaint",
+      "Origin": "Email",
+      "Status": "New",
+      "Priority": "Medium",
+      "Feedback_Category__c": "Wait time",
+      "Patient__c": "@PatMegan",
+      "Visit__c": "@VisitMegan",
+      "Description": "Patient is unhappy that she spent over 8 hours in A&E waiting for blood results and a repeat test, with little explanation of why she had to stay. She would like an explanation and an apology."
+    }
+  ]
+}

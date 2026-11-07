@@ -1,0 +1,11 @@
+[
+  { "sobject": "Account", "saveRefs": true, "resolveRefs": false, "files": ["Account.json"] },
+  { "sobject": "Doctor__c", "saveRefs": true, "resolveRefs": true, "files": ["Doctor__c.json"] },
+  { "sobject": "Condition__c", "saveRefs": true, "resolveRefs": false, "files": ["Condition__c.json"] },
+  { "sobject": "Treatment__c", "saveRefs": true, "resolveRefs": false, "files": ["Treatment__c.json"] },
+  { "sobject": "Patient__c", "saveRefs": true, "resolveRefs": true, "files": ["Patient__c.json"] },
+  { "sobject": "Visit__c", "saveRefs": true, "resolveRefs": true, "files": ["Visit__c.json"] },
+  { "sobject": "Lab_Result__c", "saveRefs": false, "resolveRefs": true, "files": ["Lab_Result__c.json"] },
+  { "sobject": "Patient_Treatment__c", "saveRefs": false, "resolveRefs": true, "files": ["Patient_Treatment__c.json"] },
+  { "sobject": "Case", "saveRefs": false, "resolveRefs": true, "files": ["Case.json"] }
+]

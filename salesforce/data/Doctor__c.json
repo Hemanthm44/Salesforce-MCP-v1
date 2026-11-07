@@ -1,0 +1,16 @@
+{
+  "records": [
+    {
+      "attributes": { "type": "Doctor__c", "referenceId": "DocBennett" },
+      "Name": "Dr Oliver Bennett",
+      "Specialty__c": "Emergency Medicine",
+      "Hospital__c": "@AccStAldric"
+    },
+    {
+      "attributes": { "type": "Doctor__c", "referenceId": "DocRahman" },
+      "Name": "Dr Aisha Rahman",
+      "Specialty__c": "Acute Medicine",
+      "Hospital__c": "@AccStAldric"
+    }
+  ]
+}

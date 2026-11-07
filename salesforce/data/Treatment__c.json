@@ -1,0 +1,28 @@
+{
+  "records": [
+    {
+      "attributes": { "type": "Treatment__c", "referenceId": "TrtCPR" },
+      "Name": "CPR and defibrillation",
+      "Type__c": "Procedure",
+      "Description__c": "Cardiopulmonary resuscitation with shocks to restore a normal heart rhythm."
+    },
+    {
+      "attributes": { "type": "Treatment__c", "referenceId": "TrtPCI" },
+      "Name": "Coronary angioplasty",
+      "Type__c": "Procedure",
+      "Description__c": "Opening a blocked coronary artery with a balloon and stent (PCI)."
+    },
+    {
+      "attributes": { "type": "Treatment__c", "referenceId": "TrtIVFluids" },
+      "Name": "IV fluids and observation",
+      "Type__c": "Therapy",
+      "Description__c": "Intravenous fluids with monitoring and repeat blood tests."
+    },
+    {
+      "attributes": { "type": "Treatment__c", "referenceId": "TrtTransfusion" },
+      "Name": "Blood transfusion",
+      "Type__c": "Therapy",
+      "Description__c": "Transfusion of red blood cells to correct severe anaemia."
+    }
+  ]
+}

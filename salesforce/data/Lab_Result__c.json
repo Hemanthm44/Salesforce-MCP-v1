@@ -1,0 +1,74 @@
+{
+  "records": [
+    {
+      "attributes": { "type": "Lab_Result__c", "referenceId": "LabDanielTrop" },
+      "Visit__c": "@VisitDaniel",
+      "Test_Name__c": "High-sensitivity troponin",
+      "Value__c": 2450,
+      "Unit__c": "ng/L",
+      "Reference_Range__c": "below 14",
+      "Flag__c": "Critical",
+      "Result_Time__c": "2026-11-07T08:55:00.000Z"
+    },
+    {
+      "attributes": { "type": "Lab_Result__c", "referenceId": "LabDanielK" },
+      "Visit__c": "@VisitDaniel",
+      "Test_Name__c": "Potassium",
+      "Value__c": 4.1,
+      "Unit__c": "mmol/L",
+      "Reference_Range__c": "3.5-5.3",
+      "Flag__c": "Normal",
+      "Result_Time__c": "2026-11-07T08:40:00.000Z"
+    },
+    {
+      "attributes": { "type": "Lab_Result__c", "referenceId": "LabMeganCa1" },
+      "Visit__c": "@VisitMegan",
+      "Test_Name__c": "Adjusted calcium",
+      "Value__c": 2.95,
+      "Unit__c": "mmol/L",
+      "Reference_Range__c": "2.20-2.60",
+      "Flag__c": "High",
+      "Result_Time__c": "2026-11-07T11:45:00.000Z"
+    },
+    {
+      "attributes": { "type": "Lab_Result__c", "referenceId": "LabMeganVitD" },
+      "Visit__c": "@VisitMegan",
+      "Test_Name__c": "Vitamin D (25-OH)",
+      "Value__c": 410,
+      "Unit__c": "nmol/L",
+      "Reference_Range__c": "50-175",
+      "Flag__c": "High",
+      "Result_Time__c": "2026-11-07T12:30:00.000Z"
+    },
+    {
+      "attributes": { "type": "Lab_Result__c", "referenceId": "LabMeganCa2" },
+      "Visit__c": "@VisitMegan",
+      "Test_Name__c": "Adjusted calcium (repeat)",
+      "Value__c": 2.78,
+      "Unit__c": "mmol/L",
+      "Reference_Range__c": "2.20-2.60",
+      "Flag__c": "High",
+      "Result_Time__c": "2026-11-07T17:40:00.000Z"
+    },
+    {
+      "attributes": { "type": "Lab_Result__c", "referenceId": "LabMargaretHb" },
+      "Visit__c": "@VisitMargaret",
+      "Test_Name__c": "Haemoglobin",
+      "Value__c": 78,
+      "Unit__c": "g/L",
+      "Reference_Range__c": "115-165",
+      "Flag__c": "Low",
+      "Result_Time__c": "2026-11-07T11:20:00.000Z"
+    },
+    {
+      "attributes": { "type": "Lab_Result__c", "referenceId": "LabMargaretFer" },
+      "Visit__c": "@VisitMargaret",
+      "Test_Name__c": "Ferritin",
+      "Value__c": 9,
+      "Unit__c": "ug/L",
+      "Reference_Range__c": "15-300",
+      "Flag__c": "Low",
+      "Result_Time__c": "2026-11-07T11:20:00.000Z"
+    }
+  ]
+}

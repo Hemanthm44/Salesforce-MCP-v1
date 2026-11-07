@@ -1,0 +1,31 @@
+{
+  "records": [
+    {
+      "attributes": { "type": "Patient__c", "referenceId": "PatDaniel" },
+      "Name": "Daniel Hughes",
+      "MRN__c": "SAH-100231",
+      "Date_of_Birth__c": "1968-03-14",
+      "Gender__c": "Male",
+      "City__c": "Bristol",
+      "Primary_Doctor__c": "@DocBennett"
+    },
+    {
+      "attributes": { "type": "Patient__c", "referenceId": "PatMegan" },
+      "Name": "Megan Clarke",
+      "MRN__c": "SAH-100232",
+      "Date_of_Birth__c": "1992-06-22",
+      "Gender__c": "Female",
+      "City__c": "Bristol",
+      "Primary_Doctor__c": "@DocBennett"
+    },
+    {
+      "attributes": { "type": "Patient__c", "referenceId": "PatMargaret" },
+      "Name": "Margaret Ellis",
+      "MRN__c": "SAH-100233",
+      "Date_of_Birth__c": "1944-02-09",
+      "Gender__c": "Female",
+      "City__c": "Bristol",
+      "Primary_Doctor__c": "@DocRahman"
+    }
+  ]
+}
