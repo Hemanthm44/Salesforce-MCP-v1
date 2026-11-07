@@ -27,11 +27,17 @@ type ToolResult = { content: { type: "text"; text: string }[]; isError?: boolean
 const ok = (value: unknown): ToolResult => ({ content: [{ type: "text", text: JSON.stringify(value) }] });
 const fail = (message: string): ToolResult => ({ content: [{ type: "text", text: message }], isError: true });
 
-function errorMessage(err: unknown): string {
-  if (err instanceof SalesforceError) {
-    return `Salesforce said: ${err.message}`;
+function failFrom(err: unknown, hint?: string): ToolResult {
+  if (err instanceof SalesforceError && err.transient) {
+    return fail(err.message);
   }
-  return err instanceof Error ? err.message : String(err);
+  const base =
+    err instanceof SalesforceError
+      ? `Salesforce said: ${err.message}`
+      : err instanceof Error
+        ? err.message
+        : String(err);
+  return fail(hint ? `${base} ${hint}` : base);
 }
 
 function clean(value: unknown): unknown {
@@ -94,7 +100,7 @@ type ObjectDescribe = {
 type QueryResult = { totalSize: number; done: boolean; records: unknown[] };
 
 export function buildMcpServer(): McpServer {
-  const server = new McpServer({ name: "salesforce-mcp", version: "0.2.0" });
+  const server = new McpServer({ name: "salesforce-mcp", version: "0.3.0" });
 
   server.registerTool(
     "list_objects",
@@ -112,7 +118,7 @@ export function buildMcpServer(): McpServer {
           .map((o) => ({ name: o.name, label: o.label }));
         return ok(objects);
       } catch (err) {
-        return fail(errorMessage(err));
+        return failFrom(err);
       }
     },
   );
@@ -147,7 +153,7 @@ export function buildMcpServer(): McpServer {
           .map((c) => ({ object: c.childSObject, relationship: c.relationshipName, field: c.field }));
         return ok({ name: d.name, label: d.label, fields, childRelationships: children });
       } catch (err) {
-        return fail(`${errorMessage(err)} Use list_objects to check the object name.`);
+        return failFrom(err, "Use list_objects to check the object name.");
       }
     },
   );
@@ -170,7 +176,7 @@ export function buildMcpServer(): McpServer {
         const records = (data.records ?? []).slice(0, MAX_ROWS);
         return ok({ totalSize: data.totalSize, returned: records.length, records: clean(records) });
       } catch (err) {
-        return fail(`${errorMessage(err)} Check object and field API names with describe_object, then try again.`);
+        return failFrom(err, "Check object and field API names with describe_object, then try again.");
       }
     },
   );
@@ -193,7 +199,7 @@ export function buildMcpServer(): McpServer {
         const data = await sfGet<unknown>(`/sobjects/${object_name}/${record_id}`);
         return ok(clean(data));
       } catch (err) {
-        return fail(errorMessage(err));
+        return failFrom(err);
       }
     },
   );
