@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>Case</members>
         <members>Condition__c</members>
         <members>Doctor__c</members>
+        <members>Lab_Result__c</members>
         <members>Patient_Treatment__c</members>
         <members>Patient__c</members>
         <members>Treatment__c</members>
@@ -12,6 +14,7 @@
     <types>
         <members>Condition__c</members>
         <members>Doctor__c</members>
+        <members>Lab_Result__c</members>
         <members>Patient_Treatment__c</members>
         <members>Patient__c</members>
         <members>Treatment__c</members>
@@ -21,6 +24,10 @@
     <types>
         <members>Medical_Demo_Admin</members>
         <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>CaseType</members>
+        <name>StandardValueSet</name>
     </types>
     <version>68.0</version>
 </Package>

@@ -15,8 +15,9 @@
             <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
-                <value><fullName>Endocrine</fullName><default>false</default><label>Endocrine</label></value>
                 <value><fullName>Cardiovascular</fullName><default>false</default><label>Cardiovascular</label></value>
+                <value><fullName>Endocrine</fullName><default>false</default><label>Endocrine</label></value>
+                <value><fullName>Haematological</fullName><default>false</default><label>Haematological</label></value>
                 <value><fullName>Respiratory</fullName><default>false</default><label>Respiratory</label></value>
                 <value><fullName>Renal</fullName><default>false</default><label>Renal</label></value>
             </valueSetDefinition>

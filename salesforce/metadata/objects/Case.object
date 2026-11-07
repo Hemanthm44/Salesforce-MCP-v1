@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Feedback_Category__c</fullName>
+        <label>Feedback Category</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value><fullName>Wait time</fullName><default>false</default><label>Wait time</label></value>
+                <value><fullName>Communication</fullName><default>false</default><label>Communication</label></value>
+                <value><fullName>Clinical care</fullName><default>false</default><label>Clinical care</label></value>
+                <value><fullName>Facilities</fullName><default>false</default><label>Facilities</label></value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Patient__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <label>Patient</label>
+        <referenceTo>Patient__c</referenceTo>
+        <relationshipLabel>Cases</relationshipLabel>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Visit__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <label>Visit</label>
+        <referenceTo>Visit__c</referenceTo>
+        <relationshipLabel>Cases</relationshipLabel>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+</CustomObject>

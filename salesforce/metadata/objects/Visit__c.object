@@ -7,6 +7,34 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
+        <fullName>Arrival_Mode__c</fullName>
+        <label>Arrival Mode</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value><fullName>Ambulance</fullName><default>false</default><label>Ambulance</label></value>
+                <value><fullName>Walk-in</fullName><default>false</default><label>Walk-in</label></value>
+                <value><fullName>GP referral</fullName><default>false</default><label>GP referral</label></value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Arrival_Time__c</fullName>
+        <label>Arrival Time</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Breached_4hr__c</fullName>
+        <formula>AND(NOT(ISBLANK(Arrival_Time__c)), NOT(ISBLANK(Discharge_Time__c)), (Discharge_Time__c - Arrival_Time__c) * 24 > 4)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Breached 4-Hour Standard</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Condition__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <label>Condition</label>
@@ -17,12 +45,50 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Department__c</fullName>
+        <label>Department</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value><fullName>Resus</fullName><default>false</default><label>Resus</label></value>
+                <value><fullName>A&amp;E</fullName><default>false</default><label>A&amp;E</label></value>
+                <value><fullName>Outpatients</fullName><default>false</default><label>Outpatients</label></value>
+                <value><fullName>Acute Medical Unit</fullName><default>false</default><label>Acute Medical Unit</label></value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Diastolic_BP__c</fullName>
         <label>Diastolic BP (mmHg)</label>
         <precision>3</precision>
         <required>false</required>
         <scale>0</scale>
         <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Discharge_Time__c</fullName>
+        <label>Discharge or Admission Time</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Disposition__c</fullName>
+        <label>Disposition</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value><fullName>Discharged with advice</fullName><default>false</default><label>Discharged with advice</label></value>
+                <value><fullName>Admitted</fullName><default>false</default><label>Admitted</label></value>
+                <value><fullName>Transferred</fullName><default>false</default><label>Transferred</label></value>
+                <value><fullName>Left before seen</fullName><default>false</default><label>Left before seen</label></value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Doctor__c</fullName>
@@ -35,10 +101,40 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Handoff_Time__c</fullName>
+        <label>Handoff Time</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Handoff_To__c</fullName>
+        <label>Handed Off To</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value><fullName>Nursing team</fullName><default>false</default><label>Nursing team</label></value>
+                <value><fullName>Specialist team</fullName><default>false</default><label>Specialist team</label></value>
+                <value><fullName>Ward team</fullName><default>false</default><label>Ward team</label></value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>HbA1c__c</fullName>
         <label>HbA1c (%)</label>
         <precision>4</precision>
         <required>false</required>
+        <scale>1</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Hours_In_Department__c</fullName>
+        <formula>ROUND((Discharge_Time__c - Arrival_Time__c) * 24, 1)</formula>
+        <formulaTreatBlanksAs>BlankAsBlank</formulaTreatBlanksAs>
+        <label>Hours in Department</label>
+        <precision>5</precision>
         <scale>1</scale>
         <type>Number</type>
     </fields>
@@ -52,6 +148,20 @@
         <reparentableMasterDetail>false</reparentableMasterDetail>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Satisfaction_Score__c</fullName>
+        <label>Satisfaction Score (1-5)</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Seen_Time__c</fullName>
+        <label>Seen by Doctor Time</label>
+        <required>false</required>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Status__c</fullName>
@@ -84,6 +194,23 @@
         <type>Number</type>
     </fields>
     <fields>
+        <fullName>Triage_Category__c</fullName>
+        <label>Triage Category</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value><fullName>1 - Immediate</fullName><default>false</default><label>1 - Immediate</label></value>
+                <value><fullName>2 - Very urgent</fullName><default>false</default><label>2 - Very urgent</label></value>
+                <value><fullName>3 - Urgent</fullName><default>false</default><label>3 - Urgent</label></value>
+                <value><fullName>4 - Standard</fullName><default>false</default><label>4 - Standard</label></value>
+                <value><fullName>5 - Non-urgent</fullName><default>false</default><label>5 - Non-urgent</label></value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Visit_Date__c</fullName>
         <label>Visit Date</label>
         <required>false</required>
@@ -103,6 +230,15 @@
                 <value><fullName>Review</fullName><default>false</default><label>Review</label></value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Wait_Minutes__c</fullName>
+        <formula>ROUND((Seen_Time__c - Arrival_Time__c) * 1440, 0)</formula>
+        <formulaTreatBlanksAs>BlankAsBlank</formulaTreatBlanksAs>
+        <label>Wait to Be Seen (Minutes)</label>
+        <precision>6</precision>
+        <scale>0</scale>
+        <type>Number</type>
     </fields>
     <label>Visit</label>
     <nameField>
