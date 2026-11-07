@@ -199,3 +199,26 @@ sf data query --query "SELECT Patient__r.Name, Wait_Minutes__c, Hours_In_Departm
   `mcp-api-key` created in Cloud Shell; per-secret access for the default compute account; Cloud Run revision 00012 with
   secrets, `SF_INSTANCE_URL`, min instances 1, timeout 300 s. Cloud Shell curl with the key returned the breach data;
   the Mac without the key got 401. **Phase 3 captured.** Voice layer handed off to a colleague; HANDOFF.md written.
+
+
+## Phase 7: Harden the MCP server (planned, not started)
+
+**Flag:** with a simulated Salesforce stall, a tool call fails cleanly within about 20 s with a speakable message;
+a simulated 503 succeeds on retry; every tool call appears as one log line in Cloud Run; `GET /ready` (with key)
+confirms Cloud Run → Salesforce end to end.
+
+| # | Item | File |
+|---|------|------|
+| 7.1 | Hard timeout (~8 s) on every Salesforce call, including the token request; friendly "Salesforce is slow to respond" error | `src/salesforce.ts` |
+| 7.2 | One retry after ~300 ms on network errors and 5xx/503 only (all calls are read-only, so retries are safe) | `src/salesforce.ts` |
+| 7.3 | No retry on 400/403/404: return straight to the agent with the existing hints | `src/salesforce.ts` |
+| 7.4 | Shared token refresh: concurrent requests wait on a single login | `src/salesforce.ts` |
+| 7.5 | Tool-call logging: tool, query, rows, ms, retried (also covers DEMO-CHECKLIST A5) | `src/mcp.ts` |
+| 7.6 | `GET /ready`, protected by the MCP key: logs in and runs a tiny query (used in DEMO-CHECKLIST D2) | `src/index.ts` |
+
+Out of scope on purpose: circuit breakers, queues, retry libraries, result caching, and MCP client-side retries
+(those belong in the voice layer).
+
+| 7.1 | ✅ Hard timeout (8 s) on every Salesforce call incl. token; "Salesforce is slow to respond" (tested: 16.4 s worst case) | `src/salesforce.ts` |
+| 7.2 | ✅ One retry after 300 ms on network errors, timeouts and 5xx (timeout path tested; 503 path **not yet tested**) | `src/salesforce.ts` |
+| 7.3 | ✅ No retry on 400/403/404; error passed straight back with hints (tested with a bad field) | `src/salesforce.ts` |
